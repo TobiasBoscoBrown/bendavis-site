@@ -33,9 +33,7 @@ export default async function About() {
               <p key={i} dangerouslySetInnerHTML={{ __html: para.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>') }} />
             ))}
             <div className="about-list">
-              {p.pills.map((pill, i) => (
-                <span className={`pill${i === 0 ? ' fill' : ''}`} key={i}>{pill}</span>
-              ))}
+              {p.pills.map((pill, i) => (<span className={`pill${i === 0 ? ' fill' : ''}`} key={i}>{pill}</span>))}
             </div>
           </Reveal>
         </div>
@@ -44,14 +42,17 @@ export default async function About() {
       {p.videoId ? (
         <section className="block" style={{ paddingTop: 0 }}>
           <div className="wrap">
-            <div className="video-row">
-              <Reveal className="video-copy">
-                <div className="eyebrow">Say Hi</div>
-                <h3>{p.videoCaption}</h3>
-                <p>A quick hello, straight from me.</p>
-              </Reveal>
-              <Reveal delay={2}><Short id={p.videoId} title="About Ben Davis" /></Reveal>
-            </div>
+            <Reveal>
+              <div className="video-panel">
+                <div className="vp-copy">
+                  <div className="eyebrow">Say Hi</div>
+                  <h3>{p.videoCaption}</h3>
+                  <p>A quick hello, straight from me. Hit play and meet the 6'9" energy you'd be working with.</p>
+                  <a href={c.social.instagram} target="_blank" rel="noopener" className="btn btn-ghost" style={{ marginTop: 8 }}>Follow on Instagram</a>
+                </div>
+                <Short id={p.videoId} title="About Ben Davis" />
+              </div>
+            </Reveal>
           </div>
         </section>
       ) : null}

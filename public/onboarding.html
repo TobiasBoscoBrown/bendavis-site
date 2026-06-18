@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Your Website — Owner's Guide | Ben Davis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{--cream:#efe9dd;--cream-2:#e6dfd0;--ink:#15130f;--ink-soft:#3b3730;--blue:#3a9fc7;--blue-deep:#2b85ab;--line:rgba(21,19,15,.16)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Archivo',-apple-system,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+header.top{background:var(--ink);color:var(--cream);padding:54px 0 46px;text-align:center}
+header.top .kick{font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--blue)}
+header.top h1{font-family:'Anton',sans-serif;font-size:clamp(40px,8vw,72px);text-transform:uppercase;line-height:.92;margin:10px 0}
+header.top p{color:rgba(239,233,221,.82);max-width:60ch;margin:8px auto 0;font-size:17px}
+.toc{background:var(--cream-2);border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin:30px 0}
+.toc h2{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.toc ol{margin-left:18px}
+.toc li{margin:5px 0;font-weight:600}
+.toc a{color:var(--ink);text-decoration:none}
+.toc a:hover{color:var(--blue-deep)}
+section{padding:30px 0;border-bottom:1px solid var(--line)}
+.part{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.part .num{font-family:'Anton',sans-serif;background:var(--blue);color:#fff;width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex:none}
+.part h2{font-family:'Anton',sans-serif;font-size:clamp(24px,4.4vw,34px);text-transform:uppercase;line-height:1}
+section h3{font-size:18px;margin:22px 0 6px}
+p{margin:12px 0}
+ol.steps{margin:14px 0 14px 22px}
+ol.steps>li{margin:10px 0;padding-left:6px}
+ul{margin:10px 0 10px 22px}
+ul li{margin:6px 0}
+code{background:var(--cream-2);border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;color:var(--blue-deep);font-weight:600}
+a{color:var(--blue-deep);font-weight:600}
+.callout{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px;padding:16px 20px;margin:18px 0}
+.callout.warn{border-left-color:#d98a1f;background:#fff8ec}
+.callout .lab{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-deep);margin-bottom:6px}
+.callout.warn .lab{color:#9a6512}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--cream-2);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+tr:last-child td{border-bottom:none}
+.pill{display:inline-block;background:var(--ink);color:var(--cream);border-radius:100px;padding:3px 10px;font-size:12px;font-weight:700;letter-spacing:.04em}
+.checklist{background:var(--cream-2);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:18px 0}
+.checklist div{margin:8px 0;font-weight:600}
+footer{text-align:center;padding:40px 0 60px;color:var(--ink-soft);font-size:14px}
+footer .big{font-family:'Anton',sans-serif;font-size:26px;color:var(--ink);text-transform:uppercase;margin-bottom:6px}
+.acc{color:var(--blue-deep)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="kick">Ben Davis · bennettsdavis.site</div>
+    <h1>Your Website<br>Owner's Guide</h1>
+    <p>Everything you need to fully own and run your site yourself, for free, forever. No coding. Take it one part at a time, about 30–45 minutes total. After that, you just use the editor.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="toc">
+    <h2>How it all fits together</h2>
+    <p style="margin-top:0">Your <b>website</b> lives on <b>Vercel</b> (free hosting, never expires). Your <b>text &amp; photos</b> live in a <b>GitHub</b> filing cabinet. You edit everything from one hidden page on your site called the <b>Editor</b>, protected by a password only you know. Your <b>domain</b> is at <b>Namecheap</b>, pointed at Vercel. Change something in the Editor, hit Save, and your live site refreshes in about a minute.</p>
+    <h2 style="margin-top:18px">Steps</h2>
+    <ol>
+      <li><a href="#p1">Create your GitHub account &amp; get the code</a></li>
+      <li><a href="#p2">Create your editor "key" (GitHub token)</a></li>
+      <li><a href="#p3">Sign up for Vercel &amp; launch the site</a></li>
+      <li><a href="#p4">Set your password &amp; keys (Environment Variables)</a></li>
+      <li><a href="#p5">Connect your domain (Namecheap → Vercel)</a></li>
+      <li><a href="#p6">How to edit your site (the fun part)</a></li>
+    </ol>
+  </div>
+
+  <section id="p1">
+    <div class="part"><div class="num">1</div><h2>Create your GitHub account &amp; get the code</h2></div>
+    <p>GitHub is where your site's content and code live.</p>
+    <ol class="steps">
+      <li>Go to <a href="https://github.com/signup" target="_blank">github.com/signup</a>.</li>
+      <li>Sign up with your email, pick a username (<code>bennettsdavis</code> is perfect), set a password, verify your email.</li>
+      <li>Tell Toby your new GitHub username.</li>
+    </ol>
+    <div class="callout">
+      <div class="lab">For Toby (2 minutes)</div>
+      In <code>github.com/TobiasBoscoBrown/bendavis-site</code> → <b>Settings → General → Danger Zone → Transfer ownership</b>. Enter Ben's username and confirm. Ben gets an email to accept.
+    </div>
+    <ol class="steps" start="4">
+      <li><b>Ben:</b> open the email "wants to transfer a repository to you" and click <b>Accept transfer</b>.</li>
+    </ol>
+    <p>Done. The project now lives at <code>github.com/YOUR-USERNAME/bendavis-site</code> and you own it 100%.</p>
+  </section>
+
+  <section id="p2">
+    <div class="part"><div class="num">2</div><h2>Create your editor "key" (GitHub token)</h2></div>
+    <p>This token is the key that lets your Editor save changes. You make it once.</p>
+    <ol class="steps">
+      <li>Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank">Fine-grained tokens</a> → <b>Generate new token</b>.</li>
+      <li><b>Name:</b> <code>website-editor</code></li>
+      <li><b>Expiration:</b> choose <b>No expiration</b> (or the longest option, and set a reminder to redo it later).</li>
+      <li><b>Repository access:</b> <b>Only select repositories</b> → choose <b>bendavis-site</b>.</li>
+      <li><b>Permissions:</b> open <b>Repository permissions</b>, find <b>Contents</b>, set it to <b>Read and write</b>. Leave everything else.</li>
+      <li>Click <b>Generate token</b> and <b>copy it now</b> (starts with <code>github_pat_…</code>). You only see it once — paste it somewhere safe for a few minutes.</li>
+    </ol>
+    <div class="callout warn"><div class="lab">Keep it private</div>This token is like a password. Never post it anywhere public. It only ever gets pasted into Vercel (next steps).</div>
+  </section>
+
+  <section id="p3">
+    <div class="part"><div class="num">3</div><h2>Sign up for Vercel &amp; launch the site</h2></div>
+    <ol class="steps">
+      <li>Go to <a href="https://vercel.com/signup" target="_blank">vercel.com/signup</a> → <b>Continue with GitHub</b> and authorize.</li>
+      <li>Choose the <b>Hobby</b> plan — it's <b>free</b> and all you'll ever need.</li>
+      <li>Dashboard → <b>Add New… → Project</b>.</li>
+      <li>Find <b>bendavis-site</b> in your repo list → <b>Import</b>.</li>
+      <li>Vercel auto-detects Next.js. <b>Don't change</b> any build settings.</li>
+      <li>Open <b>Environment Variables</b> and add the five from Part 4 (do it now so it works first try).</li>
+      <li>Click <b>Deploy</b>, wait about a minute, and you'll get a live link.</li>
+    </ol>
+  </section>
+
+  <section id="p4">
+    <div class="part"><div class="num">4</div><h2>Set your password &amp; keys (Environment Variables)</h2></div>
+    <p><b>This is where your password lives</b> — never in the code, just a private setting only you can see. To change it later, you edit <code>ADMIN_PASSWORD</code> here. Go to your project → <b>Settings → Environment Variables</b> and add these five (type the Name exactly, paste the Value, leave environment as "All", Save):</p>
+    <table>
+      <tr><th>Name</th><th>Value</th><th>What it is</th></tr>
+      <tr><td><code>ADMIN_PASSWORD</code></td><td><span class="pill">you choose</span></td><td>Your Editor login password. Make it strong.</td></tr>
+      <tr><td><code>SESSION_SECRET</code></td><td><span class="pill">random text</span></td><td>30+ random characters (keyboard mash). Keeps logins secure.</td></tr>
+      <tr><td><code>GITHUB_TOKEN</code></td><td><span class="pill">from Part 2</span></td><td>Your <code>github_pat_…</code> token. Lets the Editor save.</td></tr>
+      <tr><td><code>GITHUB_OWNER</code></td><td><span class="pill">your username</span></td><td>e.g. <code>bennettsdavis</code>.</td></tr>
+      <tr><td><code>GITHUB_REPO</code></td><td><code>bendavis-site</code></td><td>Your repository name.</td></tr>
+    </table>
+    <p>Then go to the <b>Deployments</b> tab → <b>…</b> on the latest deployment → <b>Redeploy</b>. (You only redeploy when you change these settings, not for normal edits.)</p>
+    <div class="callout"><div class="lab">Test it</div>Visit <code>your-site.vercel.app/admin</code>, type your <code>ADMIN_PASSWORD</code>, and you should land in the Editor. If it says "not connected," re-check the variable names are spelled exactly and that you redeployed.</div>
+  </section>
+
+  <section id="p5">
+    <div class="part"><div class="num">5</div><h2>Connect your domain (Namecheap → Vercel)</h2></div>
+    <ol class="steps">
+      <li>Vercel → project → <b>Settings → Domains</b> → type <code>bennettsdavis.site</code> → <b>Add</b>.</li>
+      <li>Vercel shows the exact DNS records to add. Usually:
+        <ul>
+          <li><b>A record</b> — Host <code>@</code> → Value <code>76.76.21.21</code></li>
+          <li><b>CNAME</b> — Host <code>www</code> → Value <code>cname.vercel-dns.com</code></li>
+        </ul>
+        Use the exact values Vercel shows you on screen.
+      </li>
+      <li>New tab: <b>Namecheap → Domain List → Manage</b> (next to bennettsdavis.site) → <b>Advanced DNS</b>.</li>
+      <li>Delete any parking/redirect records, then <b>Add New Record</b> for each one Vercel gave you.</li>
+      <li>Save. Back in Vercel it will show <b>Valid Configuration</b> within minutes to an hour, with a free SSL lock added automatically.</li>
+    </ol>
+    <p>That's the last setup step. From here on you only ever use the Editor.</p>
+  </section>
+
+  <section id="p6">
+    <div class="part"><div class="num">6</div><h2>How to edit your site (the fun part)</h2></div>
+    <ol class="steps">
+      <li>Go to <b>bennettsdavis.site/admin</b> (bookmark it).</li>
+      <li>Enter your password.</li>
+      <li>Click any section (Site, Social, Stats, Home, Pages…) to open it.</li>
+    </ol>
+    <ul>
+      <li><b>Change words:</b> click any text box and type.</li>
+      <li><b>Swap a photo:</b> click <b>Upload / Replace photo</b> and pick a new one.</li>
+      <li><b>Add a gallery photo:</b> open a page's Gallery → <b>+ Add</b> → upload + caption.</li>
+      <li><b>Remove anything:</b> the red <b>Remove</b> next to any photo, link, or word.</li>
+      <li><b>Save:</b> hit <b>Save changes</b> at the top — your live site updates within about a minute.</li>
+    </ul>
+    <div class="callout"><div class="lab">Good to know</div>Your email and all links (Instagram, TikTok, YouTube, Cash App…) are editable under <b>Site</b> and <b>Social</b>. The Editor page is hidden and blocked from Google. To change your password later: Vercel → Settings → Environment Variables → edit <code>ADMIN_PASSWORD</code> → Save → redeploy.</div>
+  </section>
+
+  <section>
+    <h3>Quick reference — your logins</h3>
+    <div class="checklist">
+      <div>☐ <b>GitHub</b> — username ____________ · password ____________</div>
+      <div>☐ <b>Vercel</b> — signed in with GitHub</div>
+      <div>☐ <b>Namecheap</b> — (you already have this)</div>
+      <div>☐ <b>Your Editor</b> — bennettsdavis.site/admin · password = your <code>ADMIN_PASSWORD</code></div>
+      <div>☐ <b>GitHub token</b> — stored only in Vercel as <code>GITHUB_TOKEN</code></div>
+    </div>
+    <h3>Troubleshooting</h3>
+    <ul>
+      <li><b>"Not connected":</b> a variable is missing/misspelled — re-check Part 4, then redeploy.</li>
+      <li><b>"Wrong password":</b> you're not typing your <code>ADMIN_PASSWORD</code> value.</li>
+      <li><b>Saved but no change:</b> wait 1–2 min and hard-refresh (Ctrl/Cmd+Shift+R).</li>
+      <li><b>Photo won't upload:</b> keep images under 8MB.</li>
+      <li><b>Domain not live yet:</b> DNS can take up to an hour; Vercel's Domains page shows what's pending.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="big">You own all of it now.</div>
+    Welcome to your site. <span class="acc">— Built for Ben Davis</span>
+  </footer>
+
+</div>
+</body>
+</html>

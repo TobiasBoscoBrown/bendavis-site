@@ -1,7 +1,6 @@
 import { getContent } from '@/lib/content';
 import Reveal from './Reveal';
-import Gallery from './Gallery';
-import Short from './Short';
+import Feed from './Feed';
 
 export default async function TabPage({ pageKey }) {
   const c = await getContent();
@@ -16,31 +15,14 @@ export default async function TabPage({ pageKey }) {
         </div>
       </section>
 
-      {p.videoId ? (
-        <section className="block" style={{ paddingTop: 0 }}>
-          <div className="wrap">
-            <div className="video-row">
-              <Reveal className="video-copy">
-                <div className="eyebrow">Watch</div>
-                <h3>{p.videoCaption}</h3>
-                <p>Hit play. This is the energy you're booking.</p>
-              </Reveal>
-              <Reveal delay={2}><Short id={p.videoId} title={`${p.title} — Ben Davis`} /></Reveal>
-            </div>
-          </div>
-        </section>
-      ) : null}
+      <section className="block" style={{ paddingTop: 8 }}>
+        <div className="wrap">
+          <Reveal><div className="eyebrow">Watch &amp; Selects</div></Reveal>
+          <Feed videoId={p.videoId} videoTitle={`${p.title} — Ben Davis`} items={p.gallery} watchLabel={p.videoCaption} />
+        </div>
+      </section>
 
-      {p.gallery && p.gallery.length ? (
-        <section className="block" style={{ paddingTop: 0 }}>
-          <div className="wrap">
-            <Reveal><div className="eyebrow">Selects</div></Reveal>
-            <Gallery items={p.gallery} />
-          </div>
-        </section>
-      ) : null}
-
-      <section className="book" style={{ paddingTop: 30 }}>
+      <section className="book" style={{ paddingTop: 36 }}>
         <div className="wrap">
           <Reveal as="h2" className="display"><span>{p.ctaLabel || "Let's collab"}</span></Reveal>
           <Reveal><div className="hero-actions" style={{ justifyContent: 'center', marginTop: 24 }}>
@@ -56,9 +38,5 @@ export default async function TabPage({ pageKey }) {
 export async function tabMetadata(pageKey) {
   const c = await getContent();
   const p = c.pages[pageKey];
-  return {
-    title: `${p.title} — Ben Davis`,
-    description: p.intro,
-    alternates: { canonical: `https://${c.site.domain}/${pageKey}` },
-  };
+  return { title: `${p.title} — Ben Davis`, description: p.intro, alternates: { canonical: `https://${c.site.domain}/${pageKey}` } };
 }

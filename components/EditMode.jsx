@@ -89,6 +89,7 @@ export default function EditMode() {
   }
 
   useEffect(() => {
+    if (pathname && pathname.startsWith('/admin')) return;
     const texts = document.querySelectorAll('[data-edit]');
     const imgs = document.querySelectorAll('[data-edit-img]');
     const lists = document.querySelectorAll('[data-edit-list]');
@@ -140,8 +141,6 @@ export default function EditMode() {
       }
       const editable = e.target.closest('[data-edit]');
       if (editable) { const a = e.target.closest('a'); if (a) e.preventDefault(); return; }
-      const nav = e.target.closest('a, button, [role="button"]');
-      if (nav) { e.preventDefault(); e.stopPropagation(); }
     };
 
     let dragEl = null;
@@ -179,7 +178,7 @@ export default function EditMode() {
       document.removeEventListener('drop', onDrop);
       document.removeEventListener('dragend', onDragEnd);
     };
-  }, [editing]);
+  }, [editing, pathname]);
 
   async function save() {
     setBusy(true); setMsg('Saving...');

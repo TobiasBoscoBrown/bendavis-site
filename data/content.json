@@ -4,7 +4,8 @@
     "title": "Ben Davis | 6'9\" Creator, Actor & Model in Philadelphia & NYC",
     "description": "Ben Davis is a 6'9\" creator, actor and model based in Philadelphia and New York City. Lifestyle, fitness, fashion and fun. Available for collabs and bookings.",
     "domain": "bennettsdavis.site",
-    "email": "Bennettsdavis@gmail.com"
+    "email": "Bennettsdavis@gmail.com",
+    "_qa": "1"
   },
   "social": {
     "instagram": "https://www.instagram.com/bennettsdavis",
@@ -18,12 +19,31 @@
     "wishlist": "https://www.amazon.com/hz/wishlist/ls/B8TQ7EF6T4VC?ref_=wl_share"
   },
   "stats": [
-    { "n": "6'9\"", "l": "Standing Tall" },
-    { "n": "41K+", "l": "On Instagram" },
-    { "n": "120+", "l": "Posts & Climbing" },
-    { "n": "2", "l": "Cities · PHL & NYC" }
+    {
+      "n": "6'9\"",
+      "l": "Standing Tall"
+    },
+    {
+      "n": "41K+",
+      "l": "On Instagram"
+    },
+    {
+      "n": "120+",
+      "l": "Posts & Climbing"
+    },
+    {
+      "n": "2",
+      "l": "Cities · PHL & NYC"
+    }
   ],
-  "marquee": ["Creator", "Actor", "Model", "Icon", "6'9\"", "Built Different"],
+  "marquee": [
+    "Creator",
+    "Actor",
+    "Model",
+    "Icon",
+    "6'9\"",
+    "Built Different"
+  ],
   "home": {
     "kicker": "Philadelphia & New York City",
     "h1line1": "Ben",
@@ -45,9 +65,21 @@
       "videoId": "qUDIqGadeL4",
       "videoCaption": "On set, in motion.",
       "gallery": [
-        { "src": "/media/modeling_1.jpg", "alt": "Ben Davis studio editorial in a white tank with cowboy boots", "caption": "Studio editorial" },
-        { "src": "/media/modeling_2.jpg", "alt": "Ben Davis on location by the coast", "caption": "On location" },
-        { "src": "/media/modeling_3.jpg", "alt": "Ben Davis editorial, arms crossed against a stone wall in Italy", "caption": "Editorial · Italy" }
+        {
+          "src": "/media/modeling_1.jpg",
+          "alt": "Ben Davis studio editorial in a white tank with cowboy boots",
+          "caption": "Studio editorial"
+        },
+        {
+          "src": "/media/modeling_2.jpg",
+          "alt": "Ben Davis on location by the coast",
+          "caption": "On location"
+        },
+        {
+          "src": "/media/modeling_3.jpg",
+          "alt": "Ben Davis editorial, arms crossed against a stone wall in Italy",
+          "caption": "Editorial · Italy"
+        }
       ],
       "ctaLabel": "Book a shoot"
     },
@@ -59,9 +91,21 @@
       "videoId": "wmrUXzgR7_I",
       "videoCaption": "On-camera, in character.",
       "gallery": [
-        { "src": "/media/acting_1.jpg", "alt": "Ben Davis on camera, being 6 foot 9 and gay means", "caption": "On-camera" },
-        { "src": "/media/acting_2.jpg", "alt": "Ben Davis skit, the tall glass of water and the slice of lemon", "caption": "Skit" },
-        { "src": "/media/acting_3.jpg", "alt": "Ben Davis character work, you never blend in ever", "caption": "Character" }
+        {
+          "src": "/media/acting_1.jpg",
+          "alt": "Ben Davis on camera, being 6 foot 9 and gay means",
+          "caption": "On-camera"
+        },
+        {
+          "src": "/media/acting_2.jpg",
+          "alt": "Ben Davis skit, the tall glass of water and the slice of lemon",
+          "caption": "Skit"
+        },
+        {
+          "src": "/media/acting_3.jpg",
+          "alt": "Ben Davis character work, you never blend in ever",
+          "caption": "Character"
+        }
       ],
       "ctaLabel": "Cast me"
     },
@@ -73,9 +117,21 @@
       "videoId": "ecR-4g7IrPA",
       "videoCaption": "A taste of the feed.",
       "gallery": [
-        { "src": "/media/content_1.jpg", "alt": "Ben Davis Instagram feed grid", "caption": "Instagram" },
-        { "src": "/media/content_2.jpg", "alt": "Ben Davis TikTok profile, 6 foot 9 Icon", "caption": "TikTok" },
-        { "src": "/media/content_3.jpg", "alt": "Ben Davis YouTube Shorts", "caption": "YouTube" }
+        {
+          "src": "/media/content_1.jpg",
+          "alt": "Ben Davis Instagram feed grid",
+          "caption": "Instagram"
+        },
+        {
+          "src": "/media/content_2.jpg",
+          "alt": "Ben Davis TikTok profile, 6 foot 9 Icon",
+          "caption": "TikTok"
+        },
+        {
+          "src": "/media/content_3.jpg",
+          "alt": "Ben Davis YouTube Shorts",
+          "caption": "YouTube"
+        }
       ],
       "ctaLabel": "Partner with me"
     },
@@ -88,7 +144,12 @@
         "I'm Ben, a 6'9\" creator, actor and model living between Philadelphia and New York City. I make content about what life actually looks like at this height: the fits that finally fit, the workouts that keep tall bodies strong, and the everyday fun in between.",
         "Lifestyle, fitness, fashion and fun, all from a point of view nobody else has. If you're a brand looking for someone who stands out in a crowd, literally, let's talk."
       ],
-      "pills": ["Lifestyle", "Fitness", "Fashion", "Comedy & Fun"],
+      "pills": [
+        "Lifestyle",
+        "Fitness",
+        "Fashion",
+        "Comedy & Fun"
+      ],
       "videoId": "8YxhmsFyZ7M",
       "videoCaption": "Hey, I'm Ben.",
       "guide": {

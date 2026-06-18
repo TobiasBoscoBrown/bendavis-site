@@ -1,0 +1,118 @@
+{
+  "site": {
+    "brand": "BEN.DAVIS",
+    "title": "Ben Davis | 6'9\" Creator, Actor & Model in Philadelphia & NYC",
+    "description": "Ben Davis is a 6'9\" creator, actor and model based in Philadelphia and New York City. Lifestyle, fitness, fashion and fun. Available for collabs and bookings.",
+    "domain": "bennettsdavis.site",
+    "email": "Bennettsdavis@gmail.com"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/bennettsdavis",
+    "tiktok": "https://www.tiktok.com/@bennettsdavis",
+    "youtube": "https://youtube.com/@bennettsdavis",
+    "snapchat": "https://www.snapchat.com/add/bennettsdavis",
+    "shopmy": "https://shopmy.us/bennettsdavis",
+    "cashapp": "https://cash.app/$Bsd1030",
+    "venmo": "https://venmo.com/u/Bsd10",
+    "paypal": "https://www.paypal.me/Bsd1030",
+    "wishlist": "https://www.amazon.com/hz/wishlist/ls/B8TQ7EF6T4VC?ref_=wl_share"
+  },
+  "stats": [
+    { "n": "6'9\"", "l": "Standing Tall" },
+    { "n": "41K+", "l": "On Instagram" },
+    { "n": "120+", "l": "Posts & Climbing" },
+    { "n": "2", "l": "Cities · PHL & NYC" }
+  ],
+  "marquee": ["Creator", "Actor", "Model", "Icon", "6'9\"", "Built Different"],
+  "home": {
+    "kicker": "Philadelphia & New York City",
+    "h1line1": "Ben",
+    "h1line2": "Davis",
+    "sub_bold": "6'9\" creator, actor & model.",
+    "sub_rest": "Too tall to fit in the closet. Lifestyle, fitness, fashion & fun.",
+    "portrait": "/assets/headshot.jpg",
+    "portraitTag": "6'9\"",
+    "portraitTagSub": "EVERY INCH ON BRAND",
+    "primaryCtaLabel": "Collabs & Bookings",
+    "ghostCtaLabel": "Follow on Instagram"
+  },
+  "pages": {
+    "modeling": {
+      "nav": "Modeling",
+      "eyebrow": "Editorial / Fashion / Campaigns",
+      "title": "Modeling",
+      "intro": "A 6'9\" frame that makes wardrobe, scale and presence impossible to ignore on camera. Editorial, fashion and product shoots, on location or in studio, for brands that want a look nobody else can give them.",
+      "videoId": "qUDIqGadeL4",
+      "videoCaption": "On set, in motion.",
+      "gallery": [
+        { "src": "/media/modeling_1.jpg", "alt": "Ben Davis studio editorial in a white tank with cowboy boots", "caption": "Studio editorial" },
+        { "src": "/media/modeling_2.jpg", "alt": "Ben Davis on location by the coast", "caption": "On location" },
+        { "src": "/media/modeling_3.jpg", "alt": "Ben Davis editorial, arms crossed against a stone wall in Italy", "caption": "Editorial · Italy" }
+      ],
+      "ctaLabel": "Book a shoot"
+    },
+    "acting": {
+      "nav": "Acting",
+      "eyebrow": "On-Camera / Hosting / Skits",
+      "title": "Acting",
+      "intro": "Hosting, skits, voice and on-set talent. Comfortable performing, improvising and carrying a scene with personality. A point of view nobody else has, six foot nine and impossible to miss.",
+      "videoId": "wmrUXzgR7_I",
+      "videoCaption": "On-camera, in character.",
+      "gallery": [
+        { "src": "/media/acting_1.jpg", "alt": "Ben Davis on camera, being 6 foot 9 and gay means", "caption": "On-camera" },
+        { "src": "/media/acting_2.jpg", "alt": "Ben Davis skit, the tall glass of water and the slice of lemon", "caption": "Skit" },
+        { "src": "/media/acting_3.jpg", "alt": "Ben Davis character work, you never blend in ever", "caption": "Character" }
+      ],
+      "ctaLabel": "Cast me"
+    },
+    "content-creation": {
+      "nav": "Content Creation",
+      "eyebrow": "Instagram / TikTok / YouTube",
+      "title": "Content Creation",
+      "intro": "Sponsored content and integrations across Instagram, TikTok and YouTube, built to feel native to my audience and actually convert. 41K+ on Instagram and climbing, with a voice brands keep coming back to.",
+      "videoId": "ecR-4g7IrPA",
+      "videoCaption": "A taste of the feed.",
+      "gallery": [
+        { "src": "/media/content_1.jpg", "alt": "Ben Davis Instagram feed grid", "caption": "Instagram" },
+        { "src": "/media/content_2.jpg", "alt": "Ben Davis TikTok profile, 6 foot 9 Icon", "caption": "TikTok" },
+        { "src": "/media/content_3.jpg", "alt": "Ben Davis YouTube Shorts", "caption": "YouTube" }
+      ],
+      "ctaLabel": "Partner with me"
+    },
+    "about": {
+      "nav": "About",
+      "eyebrow": "The Story",
+      "title": "About Me",
+      "big": "Too tall|to fit in|the closet.",
+      "paragraphs": [
+        "I'm Ben, a 6'9\" creator, actor and model living between Philadelphia and New York City. I make content about what life actually looks like at this height: the fits that finally fit, the workouts that keep tall bodies strong, and the everyday fun in between.",
+        "Lifestyle, fitness, fashion and fun, all from a point of view nobody else has. If you're a brand looking for someone who stands out in a crowd, literally, let's talk."
+      ],
+      "pills": ["Lifestyle", "Fitness", "Fashion", "Comedy & Fun"],
+      "videoId": "8YxhmsFyZ7M",
+      "videoCaption": "Hey, I'm Ben.",
+      "guide": {
+        "eyebrow": "Digital Guide",
+        "title": "Built Different",
+        "body": "A complete body care guide made specifically for tall people. Posture, strength, mobility and recovery, the exact system I use to move and feel good in a 6'9\" body.",
+        "image": "/assets/guide.jpg",
+        "ctaLabel": "Get the Guide",
+        "ctaHref": "https://bennettsonic2.gumroad.com/l/iszqiq"
+      },
+      "partner": {
+        "code": "BEN10",
+        "text_pre": "StriveSkin for Men.",
+        "text_rest": "Skincare built with intention, not marketing. Use my code for 10% off the men's skincare I actually use.",
+        "ctaLabel": "Shop & Save",
+        "ctaHref": "https://striveskin.com/r/ben"
+      }
+    },
+    "contact": {
+      "nav": "Contact",
+      "eyebrow": "Always Open",
+      "title": "Let's collab",
+      "intro": "Brand deals, bookings, shoots or something new. Slide into the DMs or send an email and let's make it.",
+      "connectEyebrow": "Find Me Everywhere"
+    }
+  }
+}

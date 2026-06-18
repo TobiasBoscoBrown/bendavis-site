@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getContent } from '@/lib/content';
 import Marquee from '@/components/Marquee';
 import Reveal from '@/components/Reveal';
+import EmailButton from '@/components/EmailButton';
 
 export default async function Home() {
   const c = await getContent();
@@ -21,7 +22,7 @@ export default async function Home() {
               <h1 className="display">{h.h1line1}<span className="line2">{h.h1line2}</span></h1>
               <p className="hero-sub"><b>{h.sub_bold}</b> {h.sub_rest}</p>
               <div className="hero-actions">
-                <a href={`mailto:${c.site.email}?subject=Collab%20%2F%20Booking%20Inquiry`} className="btn btn-primary">{h.primaryCtaLabel} &rarr;</a>
+                <EmailButton email={c.site.email} subject="Collab / Booking Inquiry" className="btn btn-primary" label={`${h.primaryCtaLabel} →`} />
                 <a href={c.social.instagram} target="_blank" rel="noopener" className="btn btn-ghost">{h.ghostCtaLabel}</a>
               </div>
             </div>
@@ -78,7 +79,7 @@ export default async function Home() {
           <Reveal as="h2" className="display"><span>Let's <span className="accent">collab</span></span></Reveal>
           <Reveal><p>Brand deals, bookings, shoots or something new. Slide into the DMs or send an email and let's make it.</p></Reveal>
           <Reveal><div className="hero-actions" style={{ justifyContent: 'center' }}>
-            <a href={`mailto:${c.site.email}?subject=Collab%20%2F%20Booking%20Inquiry`} className="btn btn-primary">{c.site.email}</a>
+            <EmailButton email={c.site.email} subject="Collab / Booking Inquiry" className="btn btn-primary" label={c.site.email} />
             <a href={c.social.instagram} target="_blank" rel="noopener" className="btn btn-ghost">DM on Instagram</a>
           </div></Reveal>
         </div>

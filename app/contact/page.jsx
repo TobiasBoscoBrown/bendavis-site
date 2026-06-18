@@ -1,5 +1,6 @@
 import { getContent } from '@/lib/content';
 import Reveal from '@/components/Reveal';
+import EmailButton from '@/components/EmailButton';
 
 export async function generateMetadata() {
   const c = await getContent();
@@ -27,7 +28,7 @@ export default async function Contact() {
           <Reveal as="h1" className="display"><span>{p.title}</span></Reveal>
           <Reveal><p className="lead">{p.intro}</p></Reveal>
           <Reveal><div className="hero-actions" style={{ marginTop: 30 }}>
-            <a href={`mailto:${c.site.email}?subject=Collab%20%2F%20Booking%20Inquiry`} className="btn btn-primary">{c.site.email}</a>
+            <EmailButton email={c.site.email} subject="Collab / Booking Inquiry" className="btn btn-primary" label={c.site.email} />
             <a href={s.instagram} target="_blank" rel="noopener" className="btn btn-ghost">DM on Instagram</a>
           </div></Reveal>
         </div>

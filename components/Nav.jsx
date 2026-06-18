@@ -29,7 +29,7 @@ export default function Nav({ brand, email, pages }) {
               {pages[t.key]?.nav || t.key}
             </Link>
           ))}
-          <a href={`mailto:${email}?subject=Collab%20%2F%20Booking%20Inquiry`} className="nav-cta">Book Me</a>
+          <Link href="/contact" className="nav-cta">Book Me</Link>
         </nav>
       </div>
     </header>

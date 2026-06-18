@@ -1,6 +1,7 @@
 import { getContent } from '@/lib/content';
 import Reveal from './Reveal';
 import Feed from './Feed';
+import EmailButton from './EmailButton';
 
 export default async function TabPage({ pageKey }) {
   const c = await getContent();
@@ -26,7 +27,7 @@ export default async function TabPage({ pageKey }) {
         <div className="wrap">
           <Reveal as="h2" className="display"><span>{p.ctaLabel || "Let's collab"}</span></Reveal>
           <Reveal><div className="hero-actions" style={{ justifyContent: 'center', marginTop: 24 }}>
-            <a href={`mailto:${c.site.email}?subject=${encodeURIComponent(p.title + ' inquiry')}`} className="btn btn-primary">Email Ben</a>
+            <EmailButton email={c.site.email} subject={`${p.title} inquiry`} className="btn btn-primary" label="Email Ben" />
             <a href={c.social.instagram} target="_blank" rel="noopener" className="btn btn-ghost">DM on Instagram</a>
           </div></Reveal>
         </div>

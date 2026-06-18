@@ -153,8 +153,8 @@
     },
     "about": {
       "nav": "About",
-      "eyebrow": "The Story",
-      "title": "About Me",
+      "eyebrow": "THE STORY",
+      "title": "ABOUT ME",
       "heroImage": "/media/modeling_3.jpg",
       "big": "Too tall|to fit in|the closet.",
       "paragraphs": [
@@ -162,29 +162,34 @@
         "Lifestyle, fitness, fashion and fun, all from a point of view nobody else has. If you're a brand looking for someone who stands out in a crowd, literally, let's talk."
       ],
       "pills": [
-        "Lifestyle",
-        "Fitness",
-        "Fashion",
-        "Comedy & Fun"
+        "LIFESTYLE",
+        "FITNESS",
+        "FASHION",
+        "COMEDY & FUN"
       ],
       "videoId": "8YxhmsFyZ7M",
-      "videoCaption": "Hey, I'm Ben.",
+      "videoCaption": "HEY, I'M BEN.",
       "guide": {
-        "eyebrow": "Digital Guide",
-        "title": "Built Different",
+        "eyebrow": "DIGITAL GUIDE",
+        "title": "BUILT DIFFERENT",
         "body": "A complete body care guide made specifically for tall people. Posture, strength, mobility and recovery, the exact system I use to move and feel good in a 6'9\" body.",
         "image": "/assets/guide.jpg",
-        "ctaLabel": "Get the Guide",
+        "ctaLabel": "GET THE GUIDE",
         "ctaHref": "https://bennettsonic2.gumroad.com/l/iszqiq"
       },
       "partner": {
         "code": "BEN10",
         "text_pre": "StriveSkin for Men.",
         "text_rest": "Skincare built with intention, not marketing. Use my code for 10% off the men's skincare I actually use.",
-        "ctaLabel": "Shop & Save",
+        "ctaLabel": "SHOP & SAVE",
         "ctaHref": "https://striveskin.com/r/ben"
       },
-      "blocks": []
+      "blocks": [
+        {
+          "type": "text",
+          "text": "New text. Click to edit it."
+        }
+      ]
     },
     "contact": {
       "nav": "Contact",

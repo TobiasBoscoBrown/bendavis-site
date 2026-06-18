@@ -5,6 +5,8 @@ import Reveal from '@/components/Reveal';
 import EmailButton from '@/components/EmailButton';
 import ZoomImg from '@/components/ZoomImg';
 import Edit from '@/components/Edit';
+import Blocks from '@/components/Blocks';
+import PromoStrip from '@/components/PromoStrip';
 
 export default async function Home() {
   const c = await getContent();
@@ -77,6 +79,10 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <PromoStrip promos={c.promoLinks} />
+
+      <section className="blocks-section"><div className="wrap"><Blocks path="home.blocks" blocks={h.blocks} /></div></section>
 
       <section className="book">
         <div className="wrap">

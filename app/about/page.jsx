@@ -3,6 +3,8 @@ import Reveal from '@/components/Reveal';
 import Short from '@/components/Short';
 import ZoomImg from '@/components/ZoomImg';
 import Edit from '@/components/Edit';
+import Blocks from '@/components/Blocks';
+import PromoStrip from '@/components/PromoStrip';
 
 export async function generateMetadata() {
   const c = await getContent();
@@ -58,6 +60,7 @@ export default async function About() {
                   <h3><Edit path="pages.about.videoCaption">{p.videoCaption}</Edit></h3>
                   <p>A quick hello, straight from me. Hit play and meet the 6'9" energy you'd be working with.</p>
                   <a href={c.social.instagram} target="_blank" rel="noopener" className="btn btn-ghost" style={{ marginTop: 8 }}>Follow on Instagram</a>
+                  <span className="block-url" style={{ marginTop: 10 }}>Video link or ID: <Edit path="pages.about.videoId">{p.videoId}</Edit></span>
                 </div>
                 <Short id={p.videoId} title="About Ben Davis" />
               </div>
@@ -88,6 +91,10 @@ export default async function About() {
           </Reveal>
         </div>
       </section>
+
+      <PromoStrip promos={c.promoLinks} />
+
+      <section className="blocks-section"><div className="wrap"><Blocks path="pages.about.blocks" blocks={p.blocks} /></div></section>
     </>
   );
 }

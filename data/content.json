@@ -55,7 +55,8 @@
     "primaryCtaLabel": "Collabs & Bookings",
     "ghostCtaLabel": "Follow on Instagram",
     "workEyebrow": "What I Do",
-    "workTitle": "Work with me"
+    "workTitle": "Work with me",
+    "blocks": []
   },
   "pages": {
     "modeling": {
@@ -82,7 +83,8 @@
           "caption": "Editorial · Italy"
         }
       ],
-      "ctaLabel": "Book a shoot"
+      "ctaLabel": "Book a shoot",
+      "blocks": []
     },
     "acting": {
       "nav": "Acting",
@@ -108,7 +110,8 @@
           "caption": "Character"
         }
       ],
-      "ctaLabel": "Cast me"
+      "ctaLabel": "Cast me",
+      "blocks": []
     },
     "content-creation": {
       "nav": "Content Creation",
@@ -134,7 +137,8 @@
           "caption": "YouTube"
         }
       ],
-      "ctaLabel": "Partner with me"
+      "ctaLabel": "Partner with me",
+      "blocks": []
     },
     "about": {
       "nav": "About",
@@ -168,14 +172,17 @@
         "text_rest": "Skincare built with intention, not marketing. Use my code for 10% off the men's skincare I actually use.",
         "ctaLabel": "Shop & Save",
         "ctaHref": "https://striveskin.com/r/ben"
-      }
+      },
+      "blocks": []
     },
     "contact": {
       "nav": "Contact",
       "eyebrow": "Always Open",
       "title": "Let's collab",
       "intro": "Brand deals, bookings, shoots or something new. Slide into the DMs or send an email and let's make it.",
-      "connectEyebrow": "Find Me Everywhere"
+      "connectEyebrow": "Find Me Everywhere",
+      "blocks": []
     }
-  }
+  },
+  "promoLinks": []
 }

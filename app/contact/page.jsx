@@ -2,6 +2,7 @@ import { getContent } from '@/lib/content';
 import Reveal from '@/components/Reveal';
 import EmailButton from '@/components/EmailButton';
 import Edit from '@/components/Edit';
+import Blocks from '@/components/Blocks';
 
 export async function generateMetadata() {
   const c = await getContent();
@@ -54,6 +55,8 @@ export default async function Contact() {
           </div>
         </div>
       </section>
+
+      <section className="blocks-section"><div className="wrap"><Blocks path="pages.contact.blocks" blocks={p.blocks} /></div></section>
     </>
   );
 }

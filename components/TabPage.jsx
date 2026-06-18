@@ -4,6 +4,7 @@ import Short from './Short';
 import EmailButton from './EmailButton';
 import ZoomImg from './ZoomImg';
 import Edit from './Edit';
+import Blocks from './Blocks';
 
 export default async function TabPage({ pageKey }) {
   const c = await getContent();
@@ -26,6 +27,7 @@ export default async function TabPage({ pageKey }) {
             <div className="tab-hero-video">
               <Short id={p.videoId} title={`${p.title} — Ben Davis`} />
               <span className="vcap"><b>▶</b> <Edit path={`${base}.videoCaption`}>{p.videoCaption}</Edit></span>
+              <span className="block-url">Video link or ID: <Edit path={`${base}.videoId`}>{p.videoId}</Edit></span>
             </div>
           ) : null}
         </div>
@@ -46,6 +48,8 @@ export default async function TabPage({ pageKey }) {
           </div>
         </section>
       ) : null}
+
+      <section className="blocks-section"><div className="wrap"><Blocks path={`${base}.blocks`} blocks={p.blocks} /></div></section>
 
       <section className="tab-cta">
         <div className="wrap">

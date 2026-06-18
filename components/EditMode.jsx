@@ -16,28 +16,112 @@ export default function EditMode() {
 
   useEffect(() => { fetch('/api/admin/me').then((r) => r.json()).then((j) => setAuthed(!!j.authed)).catch(() => {}); }, []);
 
+  function scrapeInto(content) {
+    document.querySelectorAll('[data-edit]').forEach((el) => { try { setIn(content, el.getAttribute('data-edit'), el.innerText.replace(/ /g, ' ').trim()); } catch (e) {} });
+    Object.entries(replacements.current).forEach(([p, url]) => { try { setIn(content, p, url); } catch (e) {} });
+    document.querySelectorAll('[data-edit-list]').forEach((list) => {
+      try {
+        const path = list.getAttribute('data-edit-list');
+        const arr = getIn(content, path);
+        const items = [...list.children].filter((c) => c.getAttribute && c.getAttribute('data-edit-index') !== null);
+        const order = items.map((c) => Number(c.getAttribute('data-edit-index'))).filter((n) => !Number.isNaN(n));
+        if (Array.isArray(arr) && order.length === arr.length) setIn(content, path, order.map((i) => arr[i]));
+      } catch (e) {}
+    });
+  }
+
+  async function loadContent() { const j = await (await fetch('/api/admin/content')).json(); if (!j.ok) throw new Error('auth'); return j.content; }
+
+  async function applyChange(modify) {
+    setBusy(true); setMsg('Updating...');
+    try {
+      const content = await loadContent();
+      scrapeInto(content);
+      await modify(content);
+      const r = await fetch('/api/admin/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+      const j = await r.json();
+      if (j.ok) { location.reload(); return; }
+      setMsg('Failed: ' + (j.error || '')); setBusy(false);
+    } catch (e) { setMsg('Please log in again.'); setBusy(false); }
+  }
+
+  function addBlock(type, listPath) {
+    if (type === 'text') return applyChange((c) => { getIn(c, listPath).push({ type: 'text', text: 'New text. Click to edit it.' }); });
+    if (type === 'link') return applyChange((c) => { getIn(c, listPath).push({ type: 'link', label: 'New button', href: 'https://' }); });
+    if (type === 'video') return applyChange((c) => { getIn(c, listPath).push({ type: 'video', videoId: '' }); });
+    if (type === 'image') {
+      const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*';
+      inp.onchange = async () => {
+        const f = inp.files && inp.files[0]; if (!f) return;
+        if (f.size > 8 * 1024 * 1024) { setMsg('Photo over 8MB, pick a smaller one.'); return; }
+        setBusy(true); setMsg('Uploading photo...');
+        try {
+          const b64 = await fileToB64(f);
+          const r = await fetch('/api/admin/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ filename: f.name, dataBase64: b64 }) });
+          const j = await r.json();
+          if (j.ok) await applyChange((c) => { getIn(c, listPath).push({ type: 'image', src: j.url, alt: '', caption: 'New photo' }); });
+          else { setMsg('Upload failed.'); setBusy(false); }
+        } catch (e) { setMsg('Upload failed.'); setBusy(false); }
+      };
+      inp.click();
+    }
+  }
+
+  async function uploadReplace(img, file) {
+    if (file.size > 8 * 1024 * 1024) { setMsg('Photo is over 8MB, pick a smaller one.'); return; }
+    setBusy(true); setMsg('Uploading photo...');
+    try {
+      const dataBase64 = await fileToB64(file);
+      const r = await fetch('/api/admin/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ filename: file.name, dataBase64 }) });
+      const j = await r.json();
+      if (j.ok) { img.src = j.url; replacements.current[img.getAttribute('data-edit-img')] = j.url; setDirty(true); setMsg('Photo swapped - hit Save to publish.'); }
+      else setMsg('Upload failed: ' + (j.error || ''));
+    } catch (e) { setMsg('Upload failed.'); }
+    setBusy(false);
+  }
+
   useEffect(() => {
     const texts = document.querySelectorAll('[data-edit]');
     const imgs = document.querySelectorAll('[data-edit-img]');
     const lists = document.querySelectorAll('[data-edit-list]');
+    const zones = document.querySelectorAll('[data-edit-add]');
 
     if (!editing) {
       document.body.classList.remove('em-on');
       texts.forEach((el) => { el.contentEditable = 'false'; el.classList.remove('em-text'); });
       imgs.forEach((el) => el.classList.remove('em-img'));
       lists.forEach((list) => { list.classList.remove('em-list'); [...list.children].forEach((c) => { c.draggable = false; c.classList.remove('em-item'); }); });
+      document.querySelectorAll('.block-adder').forEach((a) => a.remove());
       return;
     }
 
     document.body.classList.add('em-on');
     texts.forEach((el) => { el.contentEditable = 'true'; el.spellcheck = false; el.classList.add('em-text'); });
     imgs.forEach((img) => img.classList.add('em-img'));
-    lists.forEach((list) => { list.classList.add('em-list'); [...list.children].forEach((item) => { item.draggable = true; item.classList.add('em-item'); }); });
+    lists.forEach((list) => {
+      list.classList.add('em-list');
+      [...list.children].forEach((item) => { if (item.getAttribute && item.getAttribute('data-edit-index') !== null) { item.draggable = true; item.classList.add('em-item'); } });
+    });
+    zones.forEach((zone) => {
+      if (zone.querySelector('.block-adder')) return;
+      const path = zone.getAttribute('data-edit-add');
+      const adder = document.createElement('div');
+      adder.className = 'block-adder';
+      adder.innerHTML = '<span class="ba-lab">Add a block:</span>' +
+        '<button type="button" class="em-add" data-add-block="text" data-add-path="' + path + '">+ Text</button>' +
+        '<button type="button" class="em-add" data-add-block="image" data-add-path="' + path + '">+ Photo</button>' +
+        '<button type="button" class="em-add" data-add-block="video" data-add-path="' + path + '">+ Video</button>' +
+        '<button type="button" class="em-add" data-add-block="link" data-add-path="' + path + '">+ Button</button>';
+      zone.appendChild(adder);
+    });
 
     const onInput = () => setDirty(true);
-    // One click handler: replace photos, freeze navigation, allow text editing (even inside links)
     const onClick = (e) => {
       if (e.target.closest('.em-bar') || e.target.closest('.em-fab')) return;
+      const add = e.target.closest('[data-add-block]');
+      if (add) { e.preventDefault(); e.stopPropagation(); addBlock(add.getAttribute('data-add-block'), add.getAttribute('data-add-path')); return; }
+      const rem = e.target.closest('[data-edit-remove]');
+      if (rem) { e.preventDefault(); e.stopPropagation(); const p = rem.getAttribute('data-edit-remove'); if (confirm('Remove this block?')) { const parts = parsePath(p); const idx = parts.pop(); const listPath = parts.join('.'); applyChange((c) => { getIn(c, listPath).splice(idx, 1); }); } return; }
       const img = e.target.closest('[data-edit-img]');
       if (img) {
         e.preventDefault(); e.stopPropagation();
@@ -79,6 +163,7 @@ export default function EditMode() {
     document.addEventListener('dragend', onDragEnd);
     return () => {
       document.body.classList.remove('em-on');
+      document.querySelectorAll('.block-adder').forEach((a) => a.remove());
       document.removeEventListener('input', onInput, true);
       document.removeEventListener('click', onClick, true);
       document.removeEventListener('dragstart', onDragStart);
@@ -88,45 +173,22 @@ export default function EditMode() {
     };
   }, [editing]);
 
-  async function uploadReplace(img, file) {
-    if (file.size > 8 * 1024 * 1024) { setMsg('Photo is over 8MB, pick a smaller one.'); return; }
-    setBusy(true); setMsg('Uploading photo…');
-    try {
-      const dataBase64 = await fileToB64(file);
-      const r = await fetch('/api/admin/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ filename: file.name, dataBase64 }) });
-      const j = await r.json();
-      if (j.ok) { img.src = j.url; replacements.current[img.getAttribute('data-edit-img')] = j.url; setDirty(true); setMsg('Photo swapped — hit Save to publish.'); }
-      else setMsg('Upload failed: ' + (j.error || ''));
-    } catch { setMsg('Upload failed.'); }
-    setBusy(false);
-  }
-
   async function save() {
-    setBusy(true); setMsg('Saving…');
+    setBusy(true); setMsg('Saving...');
     try {
-      const cr = await fetch('/api/admin/content'); const cj = await cr.json();
-      if (!cj.ok) { setMsg('Could not load content (try logging in again).'); setBusy(false); return; }
-      const content = cj.content;
-      document.querySelectorAll('[data-edit]').forEach((el) => { try { setIn(content, el.getAttribute('data-edit'), el.innerText.replace(/ /g, ' ').trim()); } catch {} });
-      Object.entries(replacements.current).forEach(([p, url]) => { try { setIn(content, p, url); } catch {} });
-      document.querySelectorAll('[data-edit-list]').forEach((list) => {
-        try {
-          const path = list.getAttribute('data-edit-list'); const arr = getIn(content, path);
-          const order = [...list.children].map((c) => Number(c.getAttribute('data-edit-index'))).filter((n) => !Number.isNaN(n));
-          if (order.length === arr.length) setIn(content, path, order.map((i) => arr[i]));
-        } catch {}
-      });
+      const content = await loadContent();
+      scrapeInto(content);
       const r = await fetch('/api/admin/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
       const j = await r.json();
       if (j.ok) { setMsg('Saved! Your site updates in about a minute.'); setDirty(false); replacements.current = {}; }
       else setMsg('Save failed: ' + (j.error || ''));
-    } catch { setMsg('Save failed.'); }
+    } catch (e) { setMsg('Please log in again.'); }
     setBusy(false);
   }
 
   async function logout() {
     if (dirty && !confirm('You have unsaved changes. Log out anyway?')) return;
-    try { await fetch('/api/admin/logout', { method: 'POST' }); } catch {}
+    try { await fetch('/api/admin/logout', { method: 'POST' }); } catch (e) {}
     location.reload();
   }
 
@@ -139,7 +201,7 @@ export default function EditMode() {
       ) : (
         <div className="em-bar">
           <span className="em-title">Edit mode</span>
-          <span className="em-hint">Click text to edit, click a photo to replace, drag photos to reorder</span>
+          <span className="em-hint">Click text to edit, click a photo to replace, drag to reorder, add blocks below each section</span>
           <span className="em-msg">{msg}</span>
           <a className="em-btn" href="/admin/quick">Quick edits</a>
           <button className="em-btn" onClick={() => { if (!dirty || confirm('Discard unsaved changes?')) location.reload(); }}>Exit</button>

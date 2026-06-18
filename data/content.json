@@ -200,5 +200,10 @@
       "blocks": []
     }
   },
-  "promoLinks": []
+  "promoLinks": [
+    {
+      "label": "New promo",
+      "href": "https://"
+    }
+  ]
 }

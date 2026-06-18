@@ -54,6 +54,7 @@ export default function Admin() {
               <li>Hit <b>Save</b> — your site updates in about a minute</li>
             </ul>
             <a className="abtn" href="/">Go to my site →</a>
+            <a className="abtn ghost" href="/admin/quick">Quick edits (email & links)</a>
             <button className="abtn ghost" onClick={logout}>Log out</button>
           </div>
         )}

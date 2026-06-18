@@ -141,6 +141,7 @@ export default function EditMode() {
           <span className="em-title">Edit mode</span>
           <span className="em-hint">Click text to edit, click a photo to replace, drag photos to reorder</span>
           <span className="em-msg">{msg}</span>
+          <a className="em-btn" href="/admin/quick">Quick edits</a>
           <button className="em-btn" onClick={() => { if (!dirty || confirm('Discard unsaved changes?')) location.reload(); }}>Exit</button>
           <button className="em-btn" onClick={logout}>Log out</button>
           <button className="em-btn em-save" disabled={busy || !dirty} onClick={save}>{busy ? 'Saving...' : dirty ? 'Save' : 'Saved'}</button>

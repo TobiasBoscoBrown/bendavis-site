@@ -173,12 +173,7 @@
         "ctaLabel": "SHOP & SAVE",
         "ctaHref": "https://striveskin.com/r/ben"
       },
-      "blocks": [
-        {
-          "type": "text",
-          "text": "New text. Click to edit it."
-        }
-      ]
+      "blocks": []
     },
     "contact": {
       "nav": "Contact",

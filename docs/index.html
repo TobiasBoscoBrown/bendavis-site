@@ -75,6 +75,7 @@ footer .big{font-family:'Anton',sans-serif;font-size:26px;color:var(--ink);text-
       <li><a href="#p5">Connect your domain (Namecheap → Vercel)</a></li>
       <li><a href="#p6">How to edit your site (the fun part)</a></li>
       <li><a href="#p7">Deployments &amp; rolling back to any version</a></li>
+      <li><a href="#p8">Bonus: editing with AI (ChatGPT)</a></li>
     </ol>
   </div>
 
@@ -202,6 +203,27 @@ footer .big{font-family:'Anton',sans-serif;font-size:26px;color:var(--ink);text-
       <li><b>Photo won't upload:</b> keep images under 8MB.</li>
       <li><b>Domain not live yet:</b> DNS can take up to an hour; Vercel's Domains page shows what's pending.</li>
     </ul>
+  </section>
+
+  <section id="p8">
+    <div class="part"><div class="num">+</div><h2>Bonus: edit with AI</h2></div>
+    <p>When you want a bigger change than Edit Mode covers &mdash; a whole new section, a new tab, or a fresh look &mdash; you can just <b>ask an AI to do it</b>. This site is set up so ChatGPT understands it instantly.</p>
+    <h3>Quick walkthrough with ChatGPT</h3>
+    <ol class="steps">
+      <li>In ChatGPT, open <b>Codex</b> (its coding tool, on a paid plan) and click <b>Connect to GitHub</b>.</li>
+      <li>Authorize it and choose the <b>bendavis-site</b> repository.</li>
+      <li>Tell it what you want in plain English, for example:
+        <ul>
+          <li>"Add a Testimonials section to the home page with three quote cards."</li>
+          <li>"Add a new Press tab to the menu."</li>
+          <li>"Give the whole site a dark theme."</li>
+        </ul>
+      </li>
+      <li>Codex reads the project &mdash; it follows the built-in <code>AGENTS.md</code> guide, so it already knows your design and where everything lives &mdash; makes the change, and opens a <b>pull request</b> (a proposed update for you to review).</li>
+      <li>Click <b>Merge</b> to accept it. Your site rebuilds and goes live in about a minute.</li>
+    </ol>
+    <div class="callout"><div class="lab">Zero risk</div>If you don't like what the AI did, just don't merge it. And if something is already live, roll it back in two clicks (see Deployments above). Experiment as much as you want.</div>
+    <p style="color:var(--ink-soft);font-size:14px">Claude works the same way if you prefer it &mdash; either AI just needs access to the <code>bendavis-site</code> repo.</p>
   </section>
 
   <footer>

@@ -61,6 +61,11 @@
         "type": "link",
         "label": "New button",
         "href": "https://"
+      },
+      {
+        "type": "link",
+        "label": "New button",
+        "href": "https://"
       }
     ]
   },

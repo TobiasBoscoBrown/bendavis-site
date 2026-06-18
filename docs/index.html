@@ -134,7 +134,7 @@ footer .big{font-family:'Anton',sans-serif;font-size:26px;color:var(--ink);text-
       <tr><td><code>GITHUB_OWNER</code></td><td><span class="pill">your username</span></td><td>e.g. <code>bennettsdavis</code>.</td></tr>
       <tr><td><code>GITHUB_REPO</code></td><td><code>bendavis-site</code></td><td>Your repository name.</td></tr>
     </table>
-    <figure style="margin:18px 0;text-align:center"><img src="/onboarding/env-vars.png" alt="The five environment variables in Vercel" style="max-width:330px;width:100%;border:1px solid var(--line);border-radius:10px" /><figcaption style="font-size:12.5px;color:var(--ink-soft);margin-top:6px">When all five are added, your Vercel Environment Variables look like this.</figcaption></figure>
+    <figure style="margin:18px 0;text-align:center"><img src="onboarding/env-vars.png" alt="The five environment variables in Vercel" style="max-width:330px;width:100%;border:1px solid var(--line);border-radius:10px" /><figcaption style="font-size:12.5px;color:var(--ink-soft);margin-top:6px">When all five are added, your Vercel Environment Variables look like this.</figcaption></figure>
     <p>Then go to the <b>Deployments</b> tab → <b>…</b> on the latest deployment → <b>Redeploy</b>. (You only redeploy when you change these settings, not for normal edits.)</p>
     <div class="callout"><div class="lab">Test it</div>Visit <code>your-site.vercel.app/admin</code>, type your <code>ADMIN_PASSWORD</code>, and you should land in the Editor. If it says "not connected," re-check the variable names are spelled exactly and that you redeployed.</div>
   </section>
@@ -181,7 +181,7 @@ footer .big{font-family:'Anton',sans-serif;font-size:26px;color:var(--ink);text-
   <section id="p7">
     <div class="part"><div class="num">7</div><h2>Deployments &amp; rolling back</h2></div>
     <p>Every time you save a change, your site publishes a new <b>deployment</b> &mdash; a complete snapshot of the whole site at that moment. Vercel keeps every one of them. You can see the list at <b>Vercel &rarr; your project &rarr; Deployments</b>, each row labelled with what changed:</p>
-    <figure style="margin:18px 0"><img src="/onboarding/rollback.png" alt="Vercel deployments list with rollback menu" style="width:100%;border:1px solid var(--line);border-radius:10px" /><figcaption style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;text-align:center">Each save is its own deployment, with a plain-English label.</figcaption></figure>
+    <figure style="margin:18px 0"><img src="onboarding/rollback.png" alt="Vercel deployments list with rollback menu" style="width:100%;border:1px solid var(--line);border-radius:10px" /><figcaption style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;text-align:center">Each save is its own deployment, with a plain-English label.</figcaption></figure>
     <div class="callout"><div class="lab">Undo anything, anytime</div>If an edit ever goes wrong, jump back to any earlier version in two clicks: find the version you want in the Deployments list, click the <b>...</b> menu on its row, and choose <b>Instant Rollback</b> (or <b>Promote to Production</b>). Your live site switches to that exact snapshot immediately, and you can roll forward again the same way. Nothing is ever lost, so you genuinely cannot break your site.</div>
   </section>
 

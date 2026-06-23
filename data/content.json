@@ -56,12 +56,7 @@
     "ghostCtaLabel": "Follow on Instagram",
     "workEyebrow": "WHAT I DO",
     "workTitle": "WORK WITH ME",
-    "blocks": [
-      {
-        "type": "text",
-        "text": "New text. Click to edit it."
-      }
-    ]
+    "blocks": []
   },
   "pages": {
     "modeling": {
